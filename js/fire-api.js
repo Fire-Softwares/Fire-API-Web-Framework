@@ -806,7 +806,7 @@ var slideIndex = 1;
  * @since 1.1
  */
 function initializeSlider() {
-  if (document.getElementsByClassName("slider-item") !== null) showSlides(slideIndex);
+  if (document.getElementsByClassName("slider-item") !== null && document.getElementsByClassName("slider-item").length > 0) showSlides(slideIndex);
 }
 initializeSlider(); // Initializing slider at script invoke
 /**
@@ -2159,4 +2159,18 @@ function createTooltip(element, themeClass, content, secondary, id) {
   tooltipDiv.appendChild(tooltipContentSpan);
 
   return tooltipDiv;
+}
+
+/* DOM SYNTAXIC COLORATION */
+/**
+ * Format code content for DOM syntaxic coloration code container
+ *
+ * @author Renaud
+ * @version 1.1
+ * @since 1.1
+ * @param {string} code The code to format for code container
+ * @return {string} Formatted code
+ */
+function formatForDomCodeContainer(code) {
+  return code.replace(/\&amp;/g, '&amp;amp;').replace(/</g, '&amp;lt;').replace(/>/g, '&amp;gt;');
 }
